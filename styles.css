@@ -1,0 +1,125 @@
+/* General */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1em;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.contenedor {
+    display: flex;
+    padding: 2em;
+    flex: 1;
+}
+
+/* Barra lateral */
+aside {
+    width: 20%;
+    padding: 1em;
+    background-color: #f0f0f0;
+    margin-right: 2em;
+}
+
+aside h2 {
+    text-align: center;
+}
+
+aside ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+aside ul li {
+    margin-bottom: 10px;
+}
+
+aside ul li button {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Sección de productos */
+.productos {
+    flex: 1;
+}
+
+.producto-lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+}
+
+.producto {
+    border: 1px solid #ddd;
+    padding: 1em;
+    width: 200px;
+    text-align: center;
+}
+
+.producto img {
+    width: 100%;
+    height: auto;
+}
+
+.producto button {
+    background-color: #333;
+    color: white;
+    padding: 0.5em;
+    border: none;
+    cursor: pointer;
+}
+
+/* Carrito */
+.carrito {
+    padding: 2em;
+    background-color: #f0f0f0;
+}
+
+.carrito p {
+    font-size: 1.2em;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em;
+    position: relative;
+    width: 100%;
+}
