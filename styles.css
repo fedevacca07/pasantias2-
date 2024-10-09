@@ -67,11 +67,18 @@ aside ul li {
 aside ul li button {
     width: 100%;
     padding: 10px;
-    background-color: #333;
+    background-color: #292828;
     color: white;
     border: none;
     cursor: pointer;
+    border-radius: 3px;
+    transition: background-color .5s;
 }
+
+aside ul li button:hover {
+    background-color: #4e4e4e;
+}
+
 
 /* Sección de productos */
 .productos {
@@ -93,15 +100,23 @@ aside ul li button {
 
 .producto img {
     width: 100%;
-    height: auto;
+    height: 200px;
 }
 
+ /* borde  de productos :) */
+
 .producto button {
-    background-color: #333;
-    color: white;
-    padding: 0.5em;
     border: none;
-    cursor: pointer;
+    border-radius: 5px;
+    width: 70%;
+    height: 40px;
+    background-color: rgb(22, 105, 33);
+    transition: background-color .5s;
+}
+
+.btn-agregar:hover{
+    background-color: rgba(29, 121, 41, 0.9);
+
 }
 
 /* Carrito */
