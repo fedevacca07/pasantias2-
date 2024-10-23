@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computadora Gamer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Computadora Gamer</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="imgcontainer">
+            <img src="images/pc gamer.jpg" alt="Computadora Gamer">
+        </div>
+        <div class="info">
+            <p>Descripción: Esta es una computadora gamer de alto rendimiento, ideal para jugar a los últimos títulos.</p>
+            <button class="btn-agregar" data-id="1" data-nombre="Computadora Gamer" data-precio="1500">Agregar al carrito</button>
+            <h2>Precio: $1500</h2>
+        </div>
+    </main>
+
+    <!-- Carrito de Compras -->
+    <section id="carrito" class="carrito">
+        <h2>Carrito de Compras</h2>
+        <div id="carrito-lista"></div>
+        <p>Total: $<span id="total-precio">0</span></p>
+        <button id="finalizar-compra">Finalizar Compra</button>
+    </section>
+
+    <style>
+    main {
+        display: flex;
+        align-items: flex-start; /* Alinea los elementos en la parte superior */
+        gap: 20px; /* Espacio entre la imagen y el texto */
+    }
+    
+    .imgcontainer {
+        flex: 1; /* Controla el tamaño de la imagen */
+    }
+    
+    .info {
+        flex: 2; /* Controla el tamaño del texto */
+    }
+    
+    .imgcontainer img {
+        max-width: 100%; /* La imagen tomará el ancho máximo de su contenedor */
+        height: auto; /* Mantiene la proporción de la imagen */
+    }
+    
+    </style>
+
+    <script>// Carrito de compras
+        let carrito = [];
+        let total = 0;
+        
+        // Seleccionar botones de "Agregar al carrito"
+        const botonesAgregar = document.querySelectorAll('.btn-agregar');
+        const carritoLista = document.getElementById('carrito-lista');
+        const totalPrecio = document.getElementById('total-precio');
+        const cartCount = document.getElementById('cart-count');
+        
+        // Añadir productos al carrito
+        botonesAgregar.forEach(boton => {
+            boton.addEventListener('click', (e) => {
+                const id = e.target.dataset.id;
+                const nombre = e.target.dataset.nombre;
+                const precio = parseFloat(e.target.dataset.precio);
+        
+                const producto = { id, nombre, precio };
+                carrito.push(producto);
+                total += precio;
+        
+                actualizarCarrito();
+            });
+        });
+        
+        // Actualizar el carrito de compras
+        function actualizarCarrito() {
+            carritoLista.innerHTML = '';
+            carrito.forEach(producto => {
+                const item = document.createElement('div');
+                item.innerHTML = `${producto.nombre} - $${producto.precio} <button class="btn-quitar" data-id="${producto.id}">Quitar</button>`;
+                carritoLista.appendChild(item);
+            });
+        
+            totalPrecio.textContent = total.toFixed(2);
+            cartCount.textContent = carrito.length;
+        
+            // Botón de quitar producto del carrito
+            const botonesQuitar = document.querySelectorAll('.btn-quitar');
+            botonesQuitar.forEach(boton => {
+                boton.addEventListener('click', (e) => {
+                    const id = e.target.dataset.id;
+                    quitarProducto(id);
+                });
+            });
+        }
+        
+        // Quitar producto del carrito
+        function quitarProducto(id) {
+            const productoIndex = carrito.findIndex(producto => producto.id === id);
+            if (productoIndex !== -1) {
+                total -= carrito[productoIndex].precio;
+                carrito.splice(productoIndex, 1);
+                actualizarCarrito();
+            }
+        }
+        
+        // Finalizar compra
+        const finalizarCompra = document.getElementById('finalizar-compra');
+        finalizarCompra.addEventListener('click', () => {
+            if (carrito.length === 0) {
+                alert('El carrito está vacío.');
+                return;
+            }
+        
+            alert('Compra finalizada con éxito. ¡Gracias por su compra!');
+            carrito = [];
+            total = 0;
+            actualizarCarrito();
+        });
+        </script>
+
+    <footer>
+        <p>&copy; 2024 Tienda de Computadoras. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
