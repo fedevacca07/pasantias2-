@@ -12,7 +12,7 @@
     <!-- Headers -->
     <header>
         <div class="logo">
-            <h1>Vaccax</h1>
+            <h1>LosPibesTech </h1>
         </div>
         <nav>
             <ul>
@@ -32,9 +32,8 @@
             <ul id="categorias">
                 <li><button class="filter-btn" data-categoria="computadoras">Computadoras</button></li>
                 <li><button class="filter-btn" data-categoria="procesadores">Procesadores</button></li>
-                <li><button class="filter-btn" data-categoria="monitores">Memorias  Ram</button></li>
-                <li><button class="filter-btn" data-categoria="tarjetas-graficas">Tarjetas Gráficas</button></li>
                 <li><button class="filter-btn" data-categoria="monitores">Monitores</button></li>
+                <li><button class="filter-btn" data-categoria="tarjetas-graficas">Tarjetas Gráficas</button></li>
                 <li><button class="filter-btn" data-categoria="Placa Madre">Placa Madre</button></li>
                 <li><button class="filter-btn" data-categoria="memoria ram">Memoria RAM</button></li>
                 <li><button class="filter-btn" data-categoria="almacenamiento">Almacenamiento</button></li>
@@ -48,10 +47,11 @@
             <div class="producto-lista">
                 <!-- Producto Individual -->
                 <div class="producto" data-categoria="computadoras">
-                    <img src="images\pc gamer.jpg" alt="Computadora">
+                    <a href="producto-computadora-gamer.html">
+                    <img src="images\pc gamer.jpg" alt="Computadora"> </a>
                     <h3>Computadora Gamer</h3>
                     <p>Precio: $1500</p>
-                    <button class="btn-agregar" onclick="window.location.href='producto-computadora-gamer.html'">Ver Producto</button>
+                    <button class="btn-agregar" data-id="1" data-nombre="Computadora Gamer" data-precio="1500">Agregar al carrito</button>
                 </div>
                 
 
@@ -73,6 +73,8 @@
                 <div class="producto" data-categoria="procesadores">
                     <img src="images/intel/intel-i3.jpeg" alt="Procesador">
                     <h3>Procesador Intel i3</h3>
+                    <img src="images\intel\intel-i3.jpeg" alt="Procesador">
+                    <h3> Procesador Intel i3</h3>
                     <p>Precio: $400</p>
                     <button class="btn-agregar" onclick="window.location.href='i3.html'">Ver Producto</button>
                 </div>
@@ -130,44 +132,51 @@
                     <button class="btn-agregar" data-id="5" data-nombre="Tarjeta Gráfica NVIDIA RTX 4080" data-precio="999">Agregar al carrito</button>
                 </div>
                 <div class="producto" data-categoria="monitores">
-                    <img src="img/monitor.jpg" alt="Monitor">
+                    <img src="images\Monitor 4k 27.jpg" alt="Monitor">
                     <h3> Monitor 4K 27"</h3>
                     <p>Precio: $300</p>
                     <button class="btn-agregar" data-id="5" data-nombre="Monitor 4K 27" data-precio="300">Agregar al carrito</button>
                 </div>
+                <!-- Placa Madre -->
                 <div class="producto" data-categoria="Placa Madre">
-                    <img src="images\MPG-Z790-EDGE-WIFI-ph-btz.webp" alt="Placa Madre">
-                    <h3> MSI MPG Z790 GAMING EDGE WIFI"</h3>
+                    <a href="MSI MPG Z790 GAMING EDGE WIFI.html"> 
+                    <img src="images\MPG-Z790-EDGE-WIFI-ph-btz.webp" alt="Placa Madre"> </a>
+                    <h3> MSI MPG Z790 GAMING EDGE WIFI</h3>
                     <p>Precio: $300</p>
-                    <button class="btn-agregar" data-id="6" data-nombre="¨Placa Madre" data-precio="300">Agregar al carrito</button>
+                    <button class="btn-agregar" data-id="6" data-nombre="Placa Madre" data-precio="300">Agregar al carrito</button>
                 </div>
                 <div class="producto" data-categoria="Placa Madre">
-                    <img src="images\ASUS PRIME Z790-A WIFI 6E.jpeg" alt="Placa Madre">
-                    <h3> ASUS PRIME Z790-A WIFI 6E"</h3> 
+                    <a href="ASUS PRIME Z790-A WIFI 6E.html">
+                    <img src="images\ASUS PRIME Z790-A WIFI 6E.jpeg" alt="Placa Madre"> </a>
+                    <h3> ASUS PRIME Z790-A WIFI 6E</h3> 
                     <p>Precio: $300</p>
                     <button class="btn-agregar" data-id="4" data-nombre="¨Placa Madre" data-precio="300">Agregar al carrito</button>
                 </div>
                 <div class="producto" data-categoria="Placa Madre">
-                    <img src="images\Asus-MotherBoard-B760-Plus-Wifi.webp" alt="Placa Madre">
-                    <h3> ASUS PRIME B760-PLUS WIFI"</h3> 
+                    <a href="Asus B760 Plus Wifi.html">
+                    <img src="images\Asus-MotherBoard-B760-Plus-Wifi.webp" alt="Placa Madre"></a>
+                    <h3> ASUS PRIME B760-PLUS WIFI</h3> 
                     <p>Precio: $300</p>
                     <button class="btn-agregar" data-id="8" data-nombre="¨Placa Madre" data-precio="300">Agregar al carrito</button>
                 </div>
                 <div class="producto" data-categoria="Placa Madre">
-                    <img src="images\motherboard MSI b660m bazooka.jpeg" alt="Placa Madre">
-                    <h3> MSI PRO B660M BAZOOKA"</h3> 
+                    <a href="MSI B660m Bazooka.html">
+                    <img src="images\motherboard MSI b660m bazooka.jpeg" alt="Placa Madre"></a>
+                    <h3> MSI PRO B660M BAZOOKA</h3> 
                     <p>Precio: $300</p>
                     <button class="btn-agregar" data-id="8" data-nombre="¨Placa Madre" data-precio="300">Agregar al carrito</button>
                 </div>
                 <div class="producto" data-categoria="Placa Madre">
-                    <img src="images\ASUS Prime X670E-Pro WIFI.jpg" alt="Placa Madre">
-                    <h3> ASUS PRIME X670E PRO  WIFI"</h3> 
+                    <a href="ASUS Prime X670E-Pro WIFI.html">
+                    <img src="images\ASUS Prime X670E-Pro WIFI.jpg" alt="Placa Madre"></a>
+                    <h3> ASUS PRIME X670E PRO  WIFI</h3> 
                     <p>Precio: $300</p>
                     <button class="btn-agregar" data-id="8" data-nombre="¨Placa Madre" data-precio="300">Agregar al carrito</button>
                 </div>
                 <div class="producto" data-categoria="Placa Madre">
-                    <img src="images\Asus Prime B650M WIFI.png" alt="Placa Madre">
-                    <h3> ASUS PRIME B650M-A WIFI"</h3> 
+                    <a href="Asus Prime B650M Wifi.html">
+                    <img src="images\Asus Prime B650M WIFI.png" alt="Placa Madre"></a>
+                    <h3> ASUS PRIME B650M-A WIFI</h3> 
                     <p>Precio: $300</p>
                     <button class="btn-agregar" data-id="8" data-nombre="¨Placa Madre" data-precio="300">Agregar al carrito</button>
                 </div>
