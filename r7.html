@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computadora Gamer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Computadora Gamer</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="img-container">
+            <img src="images/rizen/ryzen-7.jpeg" alt="Computadora Gamer">
+        </div>
+        <div class="info">
+            <h4>Categoria: Procesadores</h4>
+            <h2>Ryzen 7 </h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum eius quidem expedita saepe rem necessitatibus laborum unde quibusdam fugiat voluptates. Soluta modi veniam ab maxime sint nesciunt neque delectus porro.</p>
+            <h3>Precio: $1500</h3>
+            <button class="btn-agregar" data-id="1" data-nombre="Computadora Gamer" data-precio="1500">Agregar al carrito</button>
+            
+        </div>
+    </main>
+
+    <!-- Carrito de Compras -->
+    <section id="carrito" class="carrito">
+        <h2>Carrito de Compras</h2>
+        <div id="carrito-lista"></div>
+        <p>Total: $<span id="total-precio">0</span></p>
+        <button id="finalizar-compra">Finalizar Compra</button>
+    </section>
+
+    <style>
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0; }
+
+        body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        
+        }
+
+        main {
+        display: flex;
+        align-items: flex-start; /* Alinea los elementos en la parte superior */
+        gap: 20px; /* Espacio entre la imagen y el texto */
+         /* Opcional: espacio alrededor del contenido */
+         
+        }
+    
+        .img-container {
+        flex: 1; /* Ambos contenedores ocuparán el mismo espacio */
+        display: flex; /* Habilita flexbox en el contenedor de la imagen */
+        justify-content: center; /* Centra la imagen horizontalmente */
+        align-items: center; /* Centra la imagen verticalmente */
+        }
+    
+        .info {
+            flex: 1
+        }
+    
+        .img-container img {
+            max-width: 100%; /* La imagen se ajustará al ancho de su contenedor */
+            height: auto; /* Mantiene la proporción de la imagen */        
+        }
+
+        .info h2 {
+        text-align: center; /* Centra el texto del título */
+        font-size: 50px;
+        margin: 0 0 20px 0; }
+
+
+
+        .info h2, h3{
+            font-size: 30px;
+
+        }
+
+        .info p{
+            font-size: 20px;
+        }
+    
+        .btn-agregar{
+            padding: 30px 50px;
+            font-size: 30px;
+            background-color: rgb(22, 105, 33);
+            border-radius: 10px;
+            }
+
+        .info h4 {
+        text-align: right; /* Alinea el texto a la derecha */
+        margin: 20px; /* Elimina el margen para que quede pegado arriba */
+        font-size: 20px; /* Ajusta el tamaño de fuente si es necesario */
+        padding: 10px 10px;
+    }
+    </style>
+    
+    <script>
+    // Carrito de compras
+    let carrito = [];
+    let total = 0;
+    
+    // Seleccionar botones de "Agregar al carrito"
+    const botonesAgregar = document.querySelectorAll('.btn-agregar');
+    const carritoLista = document.getElementById('carrito-lista');
+    const totalPrecio = document.getElementById('total-precio');
+    
+    // Añadir productos al carrito
+    botonesAgregar.forEach(boton => {
+        boton.addEventListener('click', (e) => {
+            const id = e.target.dataset.id;
+            const nombre = e.target.dataset.nombre;
+            const precio = parseFloat(e.target.dataset.precio);
+    
+            const producto = { id, nombre, precio };
+            carrito.push(producto);
+            total += precio;
+    
+            actualizarCarrito();
+        });
+    });
+    
+    // Actualizar el carrito de compras
+    function actualizarCarrito() {
+        carritoLista.innerHTML = ''; // Limpiar la lista del carrito
+        carrito.forEach(producto => {
+            const item = document.createElement('div');
+            item.innerHTML = `
+                ${producto.nombre} - $${producto.precio} 
+                <button class="btn-quitar" data-id="${producto.id}">Quitar</button>`;
+            carritoLista.appendChild(item);
+        });
+    
+        totalPrecio.textContent = total.toFixed(2);
+    }
+    
+    // Usar event delegation para manejar el clic en los botones "Quitar"
+    carritoLista.addEventListener('click', (e) => {
+        if (e.target.classList.contains('btn-quitar')) {
+            const id = e.target.dataset.id;
+            quitarProducto(id);
+        }
+    });
+    
+    // Quitar producto del carrito
+    function quitarProducto(id) {
+        const productoIndex = carrito.findIndex(producto => producto.id === id);
+        if (productoIndex !== -1) {
+            total -= carrito[productoIndex].precio;
+            carrito.splice(productoIndex, 1); // Eliminar producto del carrito
+            actualizarCarrito();
+        }
+    }
+    
+    // Finalizar compra
+    const finalizarCompra = document.getElementById('finalizar-compra');
+    finalizarCompra.addEventListener('click', () => {
+        if (carrito.length === 0) {
+            alert('El carrito está vacío.');
+            return;
+        }
+    
+        alert('Compra finalizada con éxito. ¡Gracias por su compra!');
+        carrito = []; // Vaciar el carrito
+        total = 0; // Resetear el total
+        actualizarCarrito(); // Actualizar la vista del carrito
+    });
+    </script>
+    
+
+    <footer>
+        <p>&copy; 2024 Tienda de Computadoras. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
